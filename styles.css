@@ -1,0 +1,386 @@
+/* === БАЗОВІ СТИЛІ === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #d63384;
+    --primary-dark: #a32467;
+    --secondary: #f8f5f0;
+    --text: #2c2c2c;
+    --text-light: #666;
+    --border: #e5e5e5;
+    --accent: #ff6b9d;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.7;
+    color: var(--text);
+    background: linear-gradient(135deg, #fff5f8 0%, #fffafc 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* === ШАПКА === */
+header {
+    background: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+nav a.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* === ОСНОВНА ЧАСТИНА === */
+main {
+    flex: 1;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero .lead {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    opacity: 0.95;
+}
+
+.content {
+    padding: 60px 0;
+}
+
+.content h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.content h3 {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    margin: 35px 0 15px;
+}
+
+.content p {
+    margin-bottom: 18px;
+    font-size: 1.05rem;
+}
+
+.content .lead {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.content ul, .content ol {
+    margin: 0 0 25px 25px;
+}
+
+.content li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.content a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--primary);
+    transition: color 0.3s;
+}
+
+.content a:hover {
+    color: var(--primary-dark);
+    border-bottom-style: solid;
+}
+
+figure {
+    margin: 30px 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+figcaption {
+    margin-top: 12px;
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* === КНОПКИ === */
+.btn-primary {
+    background: white;
+    color: var(--primary);
+    border: none;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* На сторінці контактів кнопка інакша */
+.contact-form .btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.contact-form .btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+/* === ФОРМА === */
+.contact-form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 30px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.12);
+}
+
+.form-result {
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 8px;
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-result.error {
+    background: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+/* === ВИПАДАЮЧИЙ СПИСОК === */
+.dropdown-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin: 20px 0 30px;
+}
+
+.dropdown-section label {
+    font-weight: 500;
+    margin-right: 12px;
+}
+
+.dropdown-section select {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.city-info {
+    margin-top: 18px;
+    padding: 18px;
+    background: var(--secondary);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    display: none;
+}
+
+.city-info.show {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === ДОПОМІЖНІ === */
+.hidden {
+    display: none;
+}
+
+#welcomeMessage {
+    margin-top: 25px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    animation: fadeIn 0.5s ease;
+}
+
+#welcomeMessage.show {
+    display: block;
+}
+
+/* === ПІДВАЛ === */
+footer {
+    background: var(--text);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+footer p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+/* === АДАПТИВНІСТЬ === */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero h2 {
+        font-size: 1.7rem;
+    }
+
+    .hero .lead {
+        font-size: 1rem;
+    }
+
+    .content {
+        padding: 40px 0;
+    }
+
+    .content h2 {
+        font-size: 1.5rem;
+    }
+
+    .content h3 {
+        font-size: 1.2rem;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    nav a {
+        padding: 6px 10px;
+        font-size: 0.95rem;
+    }
+}
